@@ -1,8 +1,8 @@
 package com.PostService.Payloads;
 
+import java.time.Instant;
 import java.util.List;
 
-import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,21 +14,21 @@ import lombok.Setter;
 @AllArgsConstructor
 public class PostDTO 
 {
-
-    private Integer postId;
-
-    @NotBlank(message = "Title should not be null")
+    private String postId;
     private String title;
-
-    @NotBlank(message = "Content should not be null")
+    private String slug;
+    private String excerpt;
     private String content;
+    private String status;
+   // private List<String> tags;
+    private Instant publishedAt;
+    private Instant updatedAt;
+    private String featuredImageUrl;
 
-    private String mediaUrl;
+    private UserDTO author;
+    private CategoryDTO category;
 
-    // private CategoryDTO categoryDto;
-
-    // private UserDTO userDto;
-
-    // private List<LikesDTO> likesDto;
+    // private Object blogSeo; // Placeholder for future implementation
+    // private Object blogEngagement; 
     
 }

@@ -1,18 +1,13 @@
 package com.PostService.Repository;
 
-import java.util.List;
-
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 import com.PostService.Entities.Post;
 
-//import com.BlogApp.Entities.Category;
-//import com.BlogApp.Entities.User;
-
 @Repository
-public interface PostRepo extends JpaRepository<Post,Integer>
+public interface PostRepo extends MongoRepository<Post,String>
 {
-    // List<Post> findAllByUser(User user);
-    // List<Post> findAllByCategory(Category category);
+
+    
 }

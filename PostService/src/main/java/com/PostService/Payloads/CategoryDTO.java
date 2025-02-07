@@ -7,11 +7,16 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-public class ApiResponse 
+@AllArgsConstructor
+public class CategoryDTO 
 {
-    private String message;
-    private boolean success;
+    private Integer categoryId;
+
+    private String categoryTitle;
+
+    private String categoryDescription;
+
+    private String slug;
     
 }

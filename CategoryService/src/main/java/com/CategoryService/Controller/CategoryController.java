@@ -28,7 +28,7 @@ public class CategoryController
     private CategoryService catService;
 
     @GetMapping("/get-category/{catId}")
-    public ResponseEntity<?> getCategory(@PathVariable Integer catId)
+    public ResponseEntity<?> getCategoryById(@PathVariable Integer catId)
     {
         CategoryDTO catDto=this.catService.getCatUsingId(catId);
         return new ResponseEntity<>(catDto,HttpStatus.OK);
