@@ -20,8 +20,9 @@ public class LoggingFilter implements GlobalFilter
     {
         ServerHttpRequest request=exchange.getRequest();
         logger.info("Incoming Request:{}",request.getURI());
-        logger.info("Method:",request.getMethod());
-        logger.info("Headers",request.getHeaders());
+        logger.info("Method: {}", request.getMethod());
+        logger.info("Headers: {}", request.getHeaders());
+
         return chain.filter(exchange);
     }
     

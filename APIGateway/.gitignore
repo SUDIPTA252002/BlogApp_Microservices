@@ -3,6 +3,7 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+*.log
 
 ### STS ###
 .apt_generated
@@ -11,7 +12,8 @@ target/
 .project
 .settings
 .springBeans
-.sts4-cache
+.sts4-
+
 
 ### IntelliJ IDEA ###
 .idea
