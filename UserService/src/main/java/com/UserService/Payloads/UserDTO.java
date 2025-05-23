@@ -3,7 +3,7 @@ package com.UserService.Payloads;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,11 +21,14 @@ public class UserDTO
     
     @NotBlank(message="LAST NAME SHOULD NOT BE BLANK")
     private String lastName;
+
     @Email(message ="EMAIL IS INVALID")
+    @NotBlank(message = "EMAIL IS REQUIRED")
     private String email;
 
     @NotEmpty
-    @Size(min = 6, message = "Password must be at least 6 characters long")
+    @Pattern(regexp =  "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$",
+             message = "Password must contain at least 8 characters, one uppercase, one lowercase, one number and one special character")
     private String password;
 
     private String about;

@@ -21,6 +21,12 @@ public class GlobalExceptionHandler
         return new ResponseEntity<ApiResponse>(new ApiResponse(ex.getMessage(),false),HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler(DuplicateResourceException.class)
+    public ResponseEntity<ApiResponse> duplicateResourceExceptionHandler(DuplicateResourceException ex)
+    {
+        return new ResponseEntity<ApiResponse>(new ApiResponse(ex.getMessage(),false),HttpStatus.CONFLICT);
+
+    }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String,String>> handleValidExceptions(MethodArgumentNotValidException ex)

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.UserService.Entities.User;
 import com.UserService.Exceptions.ResourceNotFoundException;
+import com.UserService.Exceptions.DuplicateResourceException;
 import com.UserService.Payloads.UserDTO;
 import com.UserService.Repository.UserRepo;
 import com.UserService.Service.UserService;
@@ -26,7 +27,12 @@ public class UserServiceImpl implements UserService
     @Override
     public UserDTO createUser(UserDTO userDto) 
     {
+
         User user=this.DTOtoUser(userDto);
+        if(userRepo.existByEmail(user.getEmail()))
+        {
+            throw new DuplicateResourceException("Email");
+        }
         User savedUser=this.userRepo.save(user);
         return this.UsertoDTO(savedUser);
     }
